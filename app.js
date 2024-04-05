@@ -1,5 +1,5 @@
 // Inicializar el mapa
-var map = L.map("map").setView([-34.766856, -58.313547], 15);
+var map = L.map("map").setView([-34.7282101, -58.3783931], 12);
 
 // Agregar capa base
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -213,5 +213,59 @@ categoryImages.forEach(function(image) {
     });
 });
 
+document.getElementById('city-search').addEventListener('input', function() {
+  var searchInput = this.value.trim();
+  if (searchInput.length > 0) {
+      searchCities(searchInput);
+  } else {
+      clearSearchResults();
+  }
+});
+
+document.addEventListener('click', function(event) {
+  var searchResultsContainer = document.getElementById('search-results');
+  var isClickInsideContainer = searchResultsContainer.contains(event.target);
+
+  if (!isClickInsideContainer) {
+      clearSearchResults();
+  }
+});
+
+function searchCities(searchInput) {
+  fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${searchInput}`)
+      .then(response => response.json())
+      .then(data => {
+          var searchResultsContainer = document.getElementById('search-results');
+          searchResultsContainer.innerHTML = ''; // Limpiar los resultados anteriores
+
+          if (data && data.length > 0) {
+              data.forEach(city => {
+                  var cityName = city.display_name;
+                  var cityElement = document.createElement('div');
+                  cityElement.textContent = cityName;
+                  cityElement.classList.add('search-result-item');
+                  cityElement.addEventListener('click', function() {
+                      var lat = parseFloat(city.lat);
+                      var lon = parseFloat(city.lon);
+                      map.setView([lat, lon], 12); // Ajusta la vista del mapa a la ubicación de la ciudad
+                      clearSearchResults(); // Limpiar los resultados después de seleccionar una ciudad
+                  });
+                  searchResultsContainer.appendChild(cityElement);
+              });
+          } else {
+              var noResultsMessage = document.createElement('div');
+              noResultsMessage.textContent = 'No se encontraron ciudades.';
+              searchResultsContainer.appendChild(noResultsMessage);
+          }
+      })
+      .catch(error => {
+          console.error('Error al buscar las ciudades:', error);
+      });
+}
+
+function clearSearchResults() {
+  var searchResultsContainer = document.getElementById('search-results');
+  searchResultsContainer.innerHTML = '';
+}
 // Agregar evento de clic al mapa
 map.on("click", onMapClick);

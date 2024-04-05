@@ -104,3 +104,61 @@ textarea{
 .popup-title{
     text-align: center;
 }
+
+#search-container{
+    display: flex;
+    justify-content: center;
+    /* gap: 20px; */
+    padding: 20px 0;
+}
+#city-search{
+    padding: 10px;
+    border-radius: 4px 0 0 4px;
+    border: none;
+    font-size: 20px;
+    background-color: white;
+}
+.search-img{
+    width: 25px;
+}
+.search-button:hover .search-img{
+    transform: scale(1.2);
+
+}
+.search-button{
+    border-radius: 0 4px 4px 0;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    transition: .1s ease-in-out;
+}
+.search-button:hover{
+    background-color: rgb(199, 199, 199);
+}
+.search-result-item{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    font-size: 18px;
+    /* padding: 10px; */
+}
+.search-result-item:hover{
+    color: rgb(205, 35, 35);
+    cursor: pointer;
+}
+.search-container{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    z-index: 1000;
+    right: 10%;
+    left: 10%;
+    margin-top: 10px;
+}
+.search-div{
+    background-color: rgb(199, 199, 199);
+    width: 400px;
+    border-radius: 4px;
+    padding: 0 10px;
+}
