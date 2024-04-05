@@ -131,6 +131,7 @@ function saveMarkerInfo(event, markerId) {
       throw new Error("Error al guardar el marcador");
     })
     .then((savedMarker) => {
+      deleteMarker(idMark)
       addMarkerToMap(
         { lat: savedMarker.lat, lng: savedMarker.lng },
         savedMarker.popupContent,
