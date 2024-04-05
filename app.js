@@ -55,7 +55,7 @@ function addMarkerToMap(latlng, popupContent, category) {
 
 //funcion para obtener los marcadores del backend y mostrarlo
 function fetchAndShowMarkers() {
-  fetch("http://localhost:3000/marks")
+  fetch("https://chucherias-map-server-one.vercel.app/marks")
     .then((response) => response.json())
     .then((marks) => {
       marks.forEach((mark) => {
@@ -117,7 +117,7 @@ function saveMarkerInfo(event, markerId) {
       "</p><button class='popup-button-delete delete-mark' onclick=deleteMarkFromDB(" + markerId + ")>Eliminar</button>",
   };
 
-  fetch("http://localhost:3000/marks", {
+  fetch("https://chucherias-map-server-one.vercel.app/marks", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -141,7 +141,7 @@ function saveMarkerInfo(event, markerId) {
 }
 
 function deleteMarkFromDB(mark_id){
-    fetch(`http://localhost:3000/marks/${mark_id}`,{
+    fetch(`https://chucherias-map-server-one.vercel.app/marks/${mark_id}`,{
         method:"DELETE"
     })
     .then(response => {
@@ -194,7 +194,7 @@ categoryImages.forEach(function(image) {
         markers.clearLayers();
 
         // Filtrar y mostrar solo las marcas de la categoría seleccionada
-        fetch("http://localhost:3000/marks")
+        fetch("https://chucherias-map-server-one.vercel.app/marks")
             .then((response) => response.json())
             .then((marks) => {
                 if(category === "Todos"){
