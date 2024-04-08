@@ -3,15 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chucherias Map</title>
-    <link rel="icon" type="images/png" href="./images/other.png" />
+    <title>Bull-Map</title>
+    <link rel="icon" type="images/png" href="./images/bull.png" />
     <link rel="stylesheet" href="sweetalert2.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
     <main>
-        <h1 class="title">Chucherias Map</h1>
+        <div class="div-title">
+            <img src="./images/bull.png" alt="Bullmap img" class="logo" />
+            <h1 class="title">Bull-Map</h1>
+        </div>
         <div id="search-container">
             <input type="text" id="city-search" placeholder="Buscar ciudad...">
             <button class="search-button" id="search-button">
@@ -28,12 +31,42 @@
             <div>
                 <h3 class="category-title">Categorias</h3>
                 <div class="categories-button-container">
-                    <img class="icon-mark" src="./images/all.png" alt="Todos imagen" />
-                    <img class="icon-mark" src="./images/danger.png" alt="Peligro imagen" />
-                    <img class="icon-mark" src="./images/dead.png" alt="Inseguridad imagen" />
-                    <img class="icon-mark" src="./images/food.png" alt="Comidas imagen" />
-                    <img class="icon-mark" src="./images/light.png" alt="Electricidad imagen" />
-                    <img class="icon-mark" src="./images/other.png" alt="Otros imagen" />
+                    <div class="categories-div">
+                        <img class="icon-mark" src="./images/all.png" alt="Todos imagen" />
+                        <span>Todos</span>
+                    </div>
+                    <div class="categories-div">
+                        <img class="icon-mark" src="./images/food.png" alt="Comidas imagen" />
+                        <span>Comidas</span>
+                    </div>
+                    <div class="categories-div">
+                        <img class="icon-mark" src="./images/light.png" alt="Electricidad imagen" />
+                        <span>Electricidad</span>
+                    </div>
+                    <div class="categories-div">
+                        <img class="icon-mark" src="./images/man.png" alt="Hombre imagen" />
+                        <span>Hombre</span>
+                    </div>
+                    <div class="categories-div">
+                        <img class="icon-mark" src="./images/dead.png" alt="Inseguridad imagen" />
+                        <span>Inseguridad</span>
+                    </div>
+                    <div class="categories-div">
+                        <img class="icon-mark" src="./images/woman.png" alt="Mujer imagen" />
+                        <span>Mujer</span>
+                    </div>
+                    <div class="categories-div">
+                        <img class="icon-mark" src="./images/danger.png" alt="Peligro imagen" />
+                        <span>Peligro</span>
+                    </div>
+                    <div class="categories-div">
+                        <img class="icon-mark" src="./images/work.png" alt="Trabajo imagen" />
+                        <span>Trabajo</span>
+                    </div>
+                    <div class="categories-div">
+                        <img class="icon-mark" src="./images/other.png" alt="Otros imagen" />
+                        <span>Otros</span>
+                    </div>
                 </div>
             </div>
         </section>
