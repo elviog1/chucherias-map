@@ -116,9 +116,9 @@ function createPopupForm(marker) {
 function saveMarkerInfo(event, markerId) {
   event.preventDefault();
   var marker = markers.getLayer(markerId);
-  let title = event.target.title.value;
+  let title = event.target.title.value.trim();
   let category = event.target.category.value;
-  let description = event.target.description.value;
+  let description = event.target.description.value.trim();
   let idMark = markerId;
 
   let data = {
